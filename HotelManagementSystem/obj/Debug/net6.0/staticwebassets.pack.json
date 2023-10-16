@@ -1,0 +1,53 @@
+{
+  "Files": [
+    {
+      "Id": "D:\\Hotel Management System\\HotelManagementSystem\\HotelManagementSystem\\wwwroot\\images\\hotels\\3e18a1ad-a0ba-4c02-8cc5-b3a8b990b726.jpeg",
+      "PackagePath": "staticwebassets\\images\\hotels\\3e18a1ad-a0ba-4c02-8cc5-b3a8b990b726.jpeg"
+    },
+    {
+      "Id": "D:\\Hotel Management System\\HotelManagementSystem\\HotelManagementSystem\\wwwroot\\images\\hotels\\41f9a42b-f12d-4fcf-9419-09f0175965ad.jpeg",
+      "PackagePath": "staticwebassets\\images\\hotels\\41f9a42b-f12d-4fcf-9419-09f0175965ad.jpeg"
+    },
+    {
+      "Id": "D:\\Hotel Management System\\HotelManagementSystem\\HotelManagementSystem\\wwwroot\\images\\hotels\\58351172-6ad3-4d5a-b96e-4380e9ff21f5.jpeg",
+      "PackagePath": "staticwebassets\\images\\hotels\\58351172-6ad3-4d5a-b96e-4380e9ff21f5.jpeg"
+    },
+    {
+      "Id": "D:\\Hotel Management System\\HotelManagementSystem\\HotelManagementSystem\\wwwroot\\images\\hotels\\5ade7d4b-4090-4c70-87db-f8e617b2947a.jpeg",
+      "PackagePath": "staticwebassets\\images\\hotels\\5ade7d4b-4090-4c70-87db-f8e617b2947a.jpeg"
+    },
+    {
+      "Id": "D:\\Hotel Management System\\HotelManagementSystem\\HotelManagementSystem\\wwwroot\\images\\hotels\\69fe7b8f-c7ca-45d0-8469-5a79bb2294d5.jpeg",
+      "PackagePath": "staticwebassets\\images\\hotels\\69fe7b8f-c7ca-45d0-8469-5a79bb2294d5.jpeg"
+    },
+    {
+      "Id": "D:\\Hotel Management System\\HotelManagementSystem\\HotelManagementSystem\\wwwroot\\images\\hotels\\959ddd12-1c77-4ae9-b2db-4905d6449276.jpeg",
+      "PackagePath": "staticwebassets\\images\\hotels\\959ddd12-1c77-4ae9-b2db-4905d6449276.jpeg"
+    },
+    {
+      "Id": "D:\\Hotel Management System\\HotelManagementSystem\\HotelManagementSystem\\wwwroot\\images\\hotels\\f4758633-78d8-45f0-baed-201524c19f1c.jpeg",
+      "PackagePath": "staticwebassets\\images\\hotels\\f4758633-78d8-45f0-baed-201524c19f1c.jpeg"
+    },
+    {
+      "Id": "D:\\Hotel Management System\\HotelManagementSystem\\HotelManagementSystem\\wwwroot\\images\\hotels\\f88129d9-2da5-43f6-86c8-92b71096f88a.jpg",
+      "PackagePath": "staticwebassets\\images\\hotels\\f88129d9-2da5-43f6-86c8-92b71096f88a.jpg"
+    },
+    {
+      "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.HotelManagementSystem.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.build.HotelManagementSystem.props",
+      "PackagePath": "build\\HotelManagementSystem.props"
+    },
+    {
+      "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.buildMultiTargeting.HotelManagementSystem.props",
+      "PackagePath": "buildMultiTargeting\\HotelManagementSystem.props"
+    },
+    {
+      "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.buildTransitive.HotelManagementSystem.props",
+      "PackagePath": "buildTransitive\\HotelManagementSystem.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

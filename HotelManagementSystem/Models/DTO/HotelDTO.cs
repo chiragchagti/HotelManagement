@@ -18,5 +18,6 @@ namespace HotelManagementSystem.Models.DTO
         [Required]
         [Display(Name = "Service Charges")]
         public int ServiceCharges { get; set; }
+        public IFormFileCollection Files { get; set; }
     }
 }

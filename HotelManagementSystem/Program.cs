@@ -35,7 +35,8 @@ builder.Services.AddTransient<RoleManager<ApplicationRole>, ApplicationRoleManag
 builder.Services.AddTransient<IUserStore<ApplicationUser>, ApplicationUserStore>();
 builder.Services.AddTransient<IUserService, UserService>();
 builder.Services.AddTransient<IOtpService, OtpService>();
-builder.Services.AddTransient<IHotelService, HotelService>();
+builder.Services.AddScoped<IHotelService, HotelService>();
+builder.Services.AddTransient<IBookingService, BookingService>();
 
 builder.Services.AddScoped<IEmailSender, EmailSender>();
 builder.Services.AddIdentity<ApplicationUser, ApplicationRole>()
@@ -78,7 +79,17 @@ builder.Services.AddAuthentication(x =>
     };
 });
 
-
+//NSwag
+builder.Services.AddControllersWithViews().AddNewtonsoftJson();
+builder.Services.AddSwaggerDocument(settings =>
+{
+    settings.PostProcess = document =>
+    {
+        document.Info.Version = "v1";
+        document.Info.Title = "Example API";
+        document.Info.Description = "REST API for example.";
+    };
+});
 
 //Cors
 builder.Services.AddCors(options =>
@@ -95,13 +106,15 @@ builder.Services.AddCors(options =>
 builder.Services.AddAutoMapper(typeof(MappingProfile));
 
 var app = builder.Build();
-
+app.UseOpenApi();
+app.UseSwaggerUi3();
+app.UseStaticFiles();
 // Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
-{
-    app.UseSwagger();
-    app.UseSwaggerUI();
-}
+//if (app.Environment.IsDevelopment())
+//{
+//    app.UseSwagger();
+//    app.UseSwaggerUI();
+//}
 app.UseCors("abc");
 app.UseHttpsRedirection();
 app.UseAuthentication();

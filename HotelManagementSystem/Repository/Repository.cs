@@ -21,9 +21,15 @@ namespace HotelManagementSystem.Repository
             return await SaveAsync();
         }
 
-        public async Task<bool> AddRangeAsync(IEnumerable<T> entities)
+        public async Task<bool> AddRangeAsync(ICollection<T> entities)
         {
             dbset.AddRange(entities);
+            return await SaveAsync();
+        }
+
+        public async Task<bool> UpdateRangeAsync(ICollection<T> entities)
+        {
+            dbset.UpdateRange(entities);
             return await SaveAsync();
         }
 

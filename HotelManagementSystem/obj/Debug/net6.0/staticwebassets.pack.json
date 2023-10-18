@@ -1,6 +1,10 @@
 {
   "Files": [
     {
+      "Id": "D:\\Hotel Management System\\HotelManagementSystem\\HotelManagementSystem\\wwwroot\\images\\hotels\\14beabc7-ee37-48d9-9db7-4aed829f11fc.jpeg",
+      "PackagePath": "staticwebassets\\images\\hotels\\14beabc7-ee37-48d9-9db7-4aed829f11fc.jpeg"
+    },
+    {
       "Id": "D:\\Hotel Management System\\HotelManagementSystem\\HotelManagementSystem\\wwwroot\\images\\hotels\\3e18a1ad-a0ba-4c02-8cc5-b3a8b990b726.jpeg",
       "PackagePath": "staticwebassets\\images\\hotels\\3e18a1ad-a0ba-4c02-8cc5-b3a8b990b726.jpeg"
     },
@@ -25,12 +29,52 @@
       "PackagePath": "staticwebassets\\images\\hotels\\959ddd12-1c77-4ae9-b2db-4905d6449276.jpeg"
     },
     {
+      "Id": "D:\\Hotel Management System\\HotelManagementSystem\\HotelManagementSystem\\wwwroot\\images\\hotels\\a9080a8a-eb37-4632-868a-79a031e820dd.jpeg",
+      "PackagePath": "staticwebassets\\images\\hotels\\a9080a8a-eb37-4632-868a-79a031e820dd.jpeg"
+    },
+    {
       "Id": "D:\\Hotel Management System\\HotelManagementSystem\\HotelManagementSystem\\wwwroot\\images\\hotels\\f4758633-78d8-45f0-baed-201524c19f1c.jpeg",
       "PackagePath": "staticwebassets\\images\\hotels\\f4758633-78d8-45f0-baed-201524c19f1c.jpeg"
     },
     {
       "Id": "D:\\Hotel Management System\\HotelManagementSystem\\HotelManagementSystem\\wwwroot\\images\\hotels\\f88129d9-2da5-43f6-86c8-92b71096f88a.jpg",
       "PackagePath": "staticwebassets\\images\\hotels\\f88129d9-2da5-43f6-86c8-92b71096f88a.jpg"
+    },
+    {
+      "Id": "D:\\Hotel Management System\\HotelManagementSystem\\HotelManagementSystem\\wwwroot\\images\\hotels\\rooms\\0f6351d4-7702-4e56-b0ba-865260477e25.jpeg",
+      "PackagePath": "staticwebassets\\images\\hotels\\rooms\\0f6351d4-7702-4e56-b0ba-865260477e25.jpeg"
+    },
+    {
+      "Id": "D:\\Hotel Management System\\HotelManagementSystem\\HotelManagementSystem\\wwwroot\\images\\hotels\\rooms\\2db5e12e-166c-4cb3-b9e4-72a1faa17a32.jpeg",
+      "PackagePath": "staticwebassets\\images\\hotels\\rooms\\2db5e12e-166c-4cb3-b9e4-72a1faa17a32.jpeg"
+    },
+    {
+      "Id": "D:\\Hotel Management System\\HotelManagementSystem\\HotelManagementSystem\\wwwroot\\images\\hotels\\rooms\\415cdef6-1ac0-4e11-aa4c-dff77c60f943.jpeg",
+      "PackagePath": "staticwebassets\\images\\hotels\\rooms\\415cdef6-1ac0-4e11-aa4c-dff77c60f943.jpeg"
+    },
+    {
+      "Id": "D:\\Hotel Management System\\HotelManagementSystem\\HotelManagementSystem\\wwwroot\\images\\hotels\\rooms\\42078664-31ac-4fb4-9a7f-d30db15f1852.jpeg",
+      "PackagePath": "staticwebassets\\images\\hotels\\rooms\\42078664-31ac-4fb4-9a7f-d30db15f1852.jpeg"
+    },
+    {
+      "Id": "D:\\Hotel Management System\\HotelManagementSystem\\HotelManagementSystem\\wwwroot\\images\\hotels\\rooms\\4d0b2d2c-92ec-4388-b3bd-915fd55a32af.jpeg",
+      "PackagePath": "staticwebassets\\images\\hotels\\rooms\\4d0b2d2c-92ec-4388-b3bd-915fd55a32af.jpeg"
+    },
+    {
+      "Id": "D:\\Hotel Management System\\HotelManagementSystem\\HotelManagementSystem\\wwwroot\\images\\hotels\\rooms\\60807646-bef3-4d32-be17-ca09ebf03052.jpeg",
+      "PackagePath": "staticwebassets\\images\\hotels\\rooms\\60807646-bef3-4d32-be17-ca09ebf03052.jpeg"
+    },
+    {
+      "Id": "D:\\Hotel Management System\\HotelManagementSystem\\HotelManagementSystem\\wwwroot\\images\\hotels\\rooms\\7262db04-dcfe-44f4-b8bc-bbf608a4efe8.jpeg",
+      "PackagePath": "staticwebassets\\images\\hotels\\rooms\\7262db04-dcfe-44f4-b8bc-bbf608a4efe8.jpeg"
+    },
+    {
+      "Id": "D:\\Hotel Management System\\HotelManagementSystem\\HotelManagementSystem\\wwwroot\\images\\hotels\\rooms\\b5466932-30c2-4063-aa73-0b50e9e9ff5f.jpeg",
+      "PackagePath": "staticwebassets\\images\\hotels\\rooms\\b5466932-30c2-4063-aa73-0b50e9e9ff5f.jpeg"
+    },
+    {
+      "Id": "D:\\Hotel Management System\\HotelManagementSystem\\HotelManagementSystem\\wwwroot\\images\\hotels\\rooms\\bacda26e-85ea-4ba1-8f47-5152872b9f72.jpeg",
+      "PackagePath": "staticwebassets\\images\\hotels\\rooms\\bacda26e-85ea-4ba1-8f47-5152872b9f72.jpeg"
     },
     {
       "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.HotelManagementSystem.Microsoft.AspNetCore.StaticWebAssets.props",

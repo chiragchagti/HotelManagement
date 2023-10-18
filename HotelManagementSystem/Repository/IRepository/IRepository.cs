@@ -5,8 +5,9 @@ namespace HotelManagementSystem.Repository.IRepository
     public interface IRepository<T> where T : class
     {
         Task<bool> AddAsync(T entity);    //Create
-        Task<bool> AddRangeAsync(IEnumerable<T> entities);
+        Task<bool> AddRangeAsync(ICollection<T> entities);
         Task<bool> UpdateAsync(T entity);  //Update
+        Task<bool> UpdateRangeAsync(ICollection<T> entities);
         Task<bool> RemoveAsync(T entity);  //Delete by entity
         Task<bool> RemoveAsync(int id);    //Delete by Id
         Task<bool> SaveAsync();

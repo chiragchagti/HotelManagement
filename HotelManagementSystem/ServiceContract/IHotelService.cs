@@ -6,10 +6,13 @@ namespace HotelManagementSystem.ServiceContract
 {
     public interface IHotelService
     {
-        Task<HotelVM> CreateHotel( HotelVM hotel);
+        Task<HotelDTO> CreateHotel( HotelDTO hotelDTO);
         Task<RoomTypeDTO> AddRoomType(RoomTypeDTO roomTypeDTO);
         Task<IEnumerable<HotelDTO>> GetHotels(int cityId);
         Task<HotelVM> GetHotel(int id);
+        Task<ICollection<HotelRoomDTO>> AddRoomsInHotel(ICollection<HotelRoomDTO> hotelRoomDTO);
+        Task<ICollection<HotelRoomDTO>> UpdateRoomsInHotel(ICollection<HotelRoomDTO> hotelRoomDTO);
+        Task<HotelRoomDTO> UpdateRoomInHotel(HotelRoomDTO hotelRoomDTO);
 
 
     }

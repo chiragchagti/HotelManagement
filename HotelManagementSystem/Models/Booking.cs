@@ -1,5 +1,6 @@
 ﻿using HotelManagementSystem.Identity;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace HotelManagementSystem.Models
 {
@@ -32,6 +33,10 @@ namespace HotelManagementSystem.Models
         public HotelRoom HotelRoom { get; set; }
         [Required]
         public int HotelRoomId { get; set; }
+        [NotMapped]
+        public int HotelId { get; set; }
+        [NotMapped]
+        public int RoomTypeId { get; set; }
     }
 }
 

@@ -14,7 +14,7 @@ namespace HotelManagementSystem.Models.DTO
         [Required]
         [Display(Name ="Total Rooms")]
         public int TotalRooms { get; set; }
-        [Required]
         public string Images { get; set; }
+        public IFormFileCollection Files { get; set; }
     }
 }

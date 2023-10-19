@@ -1,5 +1,7 @@
 using HotelManagementSystem.Models;
 using HotelManagementSystem.Models.DTO;
+using HotelManagementSystem.Models.OutputDTO;
+
 using AutoMapper;
 
 namespace HotelManagementSystem.DTOMapping
@@ -16,6 +18,7 @@ namespace HotelManagementSystem.DTOMapping
       CreateMap<HotelRoom, HotelRoomDTO>().ReverseMap();
       CreateMap<Payment, PaymentDTO>().ReverseMap();
       CreateMap<Booking, BookingDTO>().ReverseMap();
+      CreateMap<HotelRoom, HotelRoomOutputDTO>().ReverseMap();
         }
     }
 }

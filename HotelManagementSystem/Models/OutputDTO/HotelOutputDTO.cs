@@ -1,9 +1,9 @@
 ﻿using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 
-namespace HotelManagementSystem.Models
+namespace HotelManagementSystem.Models.OutputDTO
 {
-    public class Hotel
+    public class HotelOutputDTO
     {
         public int Id { get; set; }
         [Required] public string Name { get; set; }
@@ -14,11 +14,11 @@ namespace HotelManagementSystem.Models
         public string LocationLink { get; set; }
         public string Images { get; set; }
         [Required] public string Amenities { get; set; }
-        [Required] public int CityId { get; set; }
         public City City { get; set; }
+        [Required] public int CityId { get; set; }
         [Required]
         [Display(Name = "Service Charges")]
         public int ServiceCharges { get; set; }
-        public virtual ICollection<HotelRoom> HotelRooms { get; set; }
+        public IFormFileCollection Files { get; set; }
     }
 }

@@ -1,16 +1,14 @@
-﻿using Newtonsoft.Json;
-using System.ComponentModel.DataAnnotations;
-using System.Text.Json.Serialization;
-using JsonIgnoreAttribute = Newtonsoft.Json.JsonIgnoreAttribute;
+﻿using System.ComponentModel.DataAnnotations;
 
-namespace HotelManagementSystem.Models
+namespace HotelManagementSystem.Models.OutputDTO
 {
-    public class HotelRoom
+    public class HotelRoomOutputDTO
     {
         public int Id { get; set; }
+        public Hotel Hotel { get; set; }
         [Required]
         public int HotelId { get; set; }
-        public RoomType RoomType { get; set; }
+      
         [Required]
         public int RoomTypeId { get; set; }
         [Required]
@@ -19,8 +17,6 @@ namespace HotelManagementSystem.Models
         [Display(Name ="Total Rooms")]
         public int TotalRooms { get; set; }
         public string Images { get; set; }
-        [JsonIgnore]
-        public virtual Hotel Hotel { get; set; }
-
+        public IFormFileCollection Files { get; set; }
     }
 }

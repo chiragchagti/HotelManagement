@@ -140,7 +140,7 @@ namespace HotelManagementSystem.Migrations
 
                     b.HasIndex("HotelRoomId");
 
-                    b.ToTable("Bookings");
+                    b.ToTable("Bookings", (string)null);
                 });
 
             modelBuilder.Entity("HotelManagementSystem.Models.City", b =>
@@ -162,7 +162,7 @@ namespace HotelManagementSystem.Migrations
 
                     b.HasIndex("StateId");
 
-                    b.ToTable("Cities");
+                    b.ToTable("Cities", (string)null);
                 });
 
             modelBuilder.Entity("HotelManagementSystem.Models.Hotel", b =>
@@ -206,7 +206,7 @@ namespace HotelManagementSystem.Migrations
 
                     b.HasIndex("CityId");
 
-                    b.ToTable("Hotels");
+                    b.ToTable("Hotels", (string)null);
                 });
 
             modelBuilder.Entity("HotelManagementSystem.Models.HotelRoom", b =>
@@ -238,7 +238,7 @@ namespace HotelManagementSystem.Migrations
 
                     b.HasIndex("RoomTypeId");
 
-                    b.ToTable("HotelRooms");
+                    b.ToTable("HotelRooms", (string)null);
                 });
 
             modelBuilder.Entity("HotelManagementSystem.Models.Otp", b =>
@@ -262,7 +262,7 @@ namespace HotelManagementSystem.Migrations
 
                     b.HasIndex("ApplicationUserId");
 
-                    b.ToTable("Otps");
+                    b.ToTable("Otps", (string)null);
                 });
 
             modelBuilder.Entity("HotelManagementSystem.Models.Payment", b =>
@@ -296,7 +296,7 @@ namespace HotelManagementSystem.Migrations
 
                     b.HasIndex("BookingId");
 
-                    b.ToTable("Payments");
+                    b.ToTable("Payments", (string)null);
                 });
 
             modelBuilder.Entity("HotelManagementSystem.Models.RefreshToken", b =>
@@ -320,7 +320,7 @@ namespace HotelManagementSystem.Migrations
 
                     b.HasIndex("ApplicationUserId");
 
-                    b.ToTable("RefreshTokens");
+                    b.ToTable("RefreshTokens", (string)null);
                 });
 
             modelBuilder.Entity("HotelManagementSystem.Models.RoomType", b =>
@@ -337,7 +337,7 @@ namespace HotelManagementSystem.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("RoomTypes");
+                    b.ToTable("RoomTypes", (string)null);
                 });
 
             modelBuilder.Entity("HotelManagementSystem.Models.State", b =>
@@ -354,7 +354,7 @@ namespace HotelManagementSystem.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("States");
+                    b.ToTable("States", (string)null);
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>

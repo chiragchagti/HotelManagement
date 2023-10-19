@@ -11,6 +11,7 @@
 using System;
 using System.Reflection;
 
+
 [assembly: Microsoft.Extensions.Configuration.UserSecrets.UserSecretsIdAttribute("aspnet-HotelManagementSystem-e27341ec-71a4-421f-8201-6ee8d3f11ec8")]
 [assembly: System.Reflection.AssemblyCompanyAttribute("HotelManagementSystem")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]

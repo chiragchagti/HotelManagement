@@ -203,114 +203,110 @@ namespace HotelManagementSystem.Services
             }
         }
 
-            public async Task<ICollection<HotelRoomDTO>> UpdateRoomsInHotel(ICollection<HotelRoomDTO> hotelRoomDTO)
+        public async Task<ICollection<HotelRoomDTO>> UpdateRoomsInHotel(ICollection<HotelRoomDTO> hotelRoomDTO)
+        {
+            try
             {
-                try
+                //Images
+                foreach (var item in hotelRoomDTO)
                 {
-                    //Images
-                    foreach (var item in hotelRoomDTO)
+                    item.Images = "";
+                    if (item.Files != null)
                     {
-                        item.Images = "";
-                        if (item.Files != null)
+                        var webRootPath = _webHostEnvironment.WebRootPath;
+                        var room = await _unitOfWork.HotelRoom.FirstOrDefaultAsync(r => r.Id == item.Id);
+                        item.Images = room.Images;
+                        //if (item.Images != null)
+                        //{
+
+                        //    string[] imagePathsArray = item.Images.Split(',');
+
+                        //    foreach (var imagePath in imagePathsArray)
+                        //    {
+                        //        var trimmedPath = imagePath.Trim('\\');
+                        //        var fullPath = Path.Combine(webRootPath, trimmedPath);
+
+                        //        if (System.IO.File.Exists(fullPath))
+                        //        {
+                        //            System.IO.File.Delete(fullPath);
+                        //        }
+                        //    }
+                        //    item.Images = "";
+                        //}
+                        foreach (var file in item.Files)
                         {
-                            var webRootPath = _webHostEnvironment.WebRootPath;
-                            var room = await _unitOfWork.HotelRoom.FirstOrDefaultAsync(r => r.Id == item.Id);
-                            item.Images = room.Images;
-                            //if (item.Images != null)
-                            //{
+                            var fileName = Guid.NewGuid().ToString();
+                            var extention = Path.GetExtension(file.FileName);
+                            var upload = Path.Combine(webRootPath, @"images\hotels\rooms");
 
-                            //    string[] imagePathsArray = item.Images.Split(',');
-
-                            //    foreach (var imagePath in imagePathsArray)
-                            //    {
-                            //        var trimmedPath = imagePath.Trim('\\');
-                            //        var fullPath = Path.Combine(webRootPath, trimmedPath);
-
-                            //        if (System.IO.File.Exists(fullPath))
-                            //        {
-                            //            System.IO.File.Delete(fullPath);
-                            //        }
-                            //    }
-                            //    item.Images = "";
-                            //}
-                            foreach (var file in item.Files)
+                            using (var FileStream = new FileStream(Path.Combine(upload, fileName + extention), FileMode.Create))
                             {
-                                var fileName = Guid.NewGuid().ToString();
-                                var extention = Path.GetExtension(file.FileName);
-                                var upload = Path.Combine(webRootPath, @"images\hotels\rooms");
+                                file.CopyTo(FileStream);  //save
+                            }
+                            if (item.Images == "")
+                            {
+                                item.Images = @"\images\hotels\rooms\" + fileName + extention;
+                            }
+                            else
+                            {
+                                item.Images = item.Images + "," + @"\images\hotels\rooms\" + fileName + extention;
 
-                                using (var FileStream = new FileStream(Path.Combine(upload, fileName + extention), FileMode.Create))
-                                {
-                                    file.CopyTo(FileStream);  //save
-                                }
-                                if (item.Images == "")
-                                {
-                                    item.Images = @"\images\hotels\" + fileName + extention;
-                                }
-                                else
-                                {
-                                    item.Images = item.Images + "," + @"\images\hotels\" + fileName + extention;
-
-                                }
                             }
                         }
-                        else
-                        {
-                            var room = await _unitOfWork.HotelRoom.FirstOrDefaultAsync(r => r.Id == item.Id);
-                            item.Images = room.Images;
-                        }
-                        var hotelRooms = _mapper.Map<ICollection<HotelRoomDTO>, ICollection<HotelRoom>>(hotelRoomDTO);
-                        await _unitOfWork.HotelRoom.UpdateRangeAsync(hotelRooms);
                     }
-                    return hotelRoomDTO;
-                }
-                catch (Exception ex)
-                {
-                    throw new ApplicationException("An error occurred." + ex);
-                }
-            }
-
-            public async Task<IEnumerable<HotelDTO>> GetHotels(int cityId)
-            {
-                try
-                {
-                    var hotels = await _unitOfWork.Hotel.GetAllAsync(h => h.CityId == cityId);
-                    if (hotels == null)
+                    else
                     {
-
-                        return Enumerable.Empty<HotelDTO>();
+                        var room = await _unitOfWork.HotelRoom.FirstOrDefaultAsync(r => r.Id == item.Id);
+                        item.Images = room.Images;
                     }
-
-                    var hotelsDTO = _mapper.Map<IEnumerable<HotelDTO>>(hotels);
-                    return hotelsDTO;
+                    var hotelRooms = _mapper.Map<ICollection<HotelRoomDTO>, ICollection<HotelRoom>>(hotelRoomDTO);
+                    await _unitOfWork.HotelRoom.UpdateRangeAsync(hotelRooms);
                 }
-                catch (Exception)
-                {
+                return hotelRoomDTO;
+            }
+            catch (Exception ex)
+            {
+                throw new ApplicationException("An error occurred." + ex);
+            }
+        }
 
+        public async Task<IEnumerable<HotelDTO>> GetHotels(int cityId)
+        {
+            try
+            {
+                var hotels = await _unitOfWork.Hotel.GetAllAsync(h => h.CityId == cityId, includeProperties: "HotelRooms");
+                if (hotels == null)
+                {
                     return Enumerable.Empty<HotelDTO>();
                 }
+
+                var hotelsDTO = _mapper.Map<IEnumerable<HotelDTO>>(hotels);
+                return hotelsDTO;
             }
-            public async Task<HotelVM> GetHotel(int id)
+            catch (Exception)
             {
-                try
-                {
-                    var hotel = await _unitOfWork.Hotel.GetAsync(id);
-                    if (hotel == null) return null;
-                    var hotelVM = new HotelVM();
-                    hotelVM.Hotel = _mapper.Map<HotelDTO>(hotel);
-                    var hotelRooms = await _unitOfWork.HotelRoom.GetAllAsync(h => h.HotelId == hotelVM.Hotel.Id);
-                    hotelVM.HotelRooms = _mapper.Map<List<HotelRoomDTO>>(hotelRooms);
-                    return hotelVM;
 
-                }
-                catch (Exception ex)
-                {
-                    throw new ApplicationException("An error occurred." + ex);
-
-                }
+                return Enumerable.Empty<HotelDTO>();
             }
-
-
-
         }
+        public async Task<HotelDTO> GetHotel(int id)
+        {
+            try
+            {
+                var hotel = await _unitOfWork.Hotel.FirstOrDefaultAsync(h=>h.Id == id, includeProperties:"HotelRooms,HotelRooms.RoomType");
+                if (hotel == null) return null;
+                var hotelDTO = _mapper.Map<HotelDTO>(hotel);
+                return hotelDTO;
+
+            }
+            catch (Exception ex)
+            {
+                throw new ApplicationException("An error occurred." + ex);
+
+            }
+        }
+
+
+
     }
+}

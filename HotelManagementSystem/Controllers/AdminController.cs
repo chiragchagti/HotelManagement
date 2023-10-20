@@ -15,7 +15,6 @@ namespace HotelManagementSystem.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    [Authorize]
     public class AdminController : ControllerBase
     {
         private readonly IUnitOfWork _unitOfWork;
@@ -40,6 +39,7 @@ namespace HotelManagementSystem.Controllers
         {
             try
             {
+                if (!ModelState.IsValid) return BadRequest(ModelState);
                 if (roomTypeDTO == null) return BadRequest();
                 if (!ModelState.IsValid) return BadRequest();
                 var roomType = await _hotelService.AddRoomType(roomTypeDTO);
@@ -56,6 +56,7 @@ namespace HotelManagementSystem.Controllers
         {
             try
             {
+                if (!ModelState.IsValid) return BadRequest(ModelState);
                 if (hotelDTO == null) return BadRequest();
                 var hotel = await _hotelService.CreateHotel(hotelDTO);
                 if (hotel == null) return NotFound();
@@ -72,6 +73,7 @@ namespace HotelManagementSystem.Controllers
         {
             try
             {
+                if (!ModelState.IsValid) return BadRequest(ModelState);
                 if (hotelRoomDTO.Count == 0) return BadRequest();
                 var hotelRooms = await _hotelService.AddRoomsInHotel(hotelRoomDTO);
                 if (hotelRooms == null) return NotFound();
@@ -82,28 +84,13 @@ namespace HotelManagementSystem.Controllers
                 return StatusCode(500, "An error occurred while processing your request. Error is:" + ex);
             }
         }
-        [HttpPut("updateroomsinhotel")]
-        public async Task<IActionResult> UpdateRoomsInHotel([FromForm] ICollection<HotelRoomDTO> hotelRoomDTO)
-        {
-            try
-            {
-                if (hotelRoomDTO.Count == 0) return BadRequest();
-                var hotelRooms = await _hotelService.UpdateRoomsInHotel(hotelRoomDTO);
-                if (hotelRooms == null) return NotFound();
-                return Ok(hotelRooms);
-            }
-            catch (Exception ex)
-            {
-                return StatusCode(500, "An error occurred while processing your request. Error is:" + ex);
-            }
-
-        }
         [HttpPut("updateroominhotel")]
 
         public async Task<IActionResult> UpdateRoomInHotel([FromForm] HotelRoomDTO hotelRoomDTO)
         {
             try
             {
+                if (!ModelState.IsValid) return BadRequest(ModelState);
                 if (hotelRoomDTO == null) return BadRequest();
                 var hotelRoom = await _hotelService.UpdateRoomInHotel(hotelRoomDTO);
                 if (hotelRoom == null) return NotFound();

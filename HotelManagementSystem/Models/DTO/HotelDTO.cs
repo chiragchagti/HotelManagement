@@ -20,5 +20,6 @@ namespace HotelManagementSystem.Models.DTO
         public int ServiceCharges { get; set; }
         public IFormFileCollection Files { get; set; }
         public virtual ICollection<HotelRoom> HotelRooms { get; set; }
+        public virtual City City { get; set; }
     }
 }

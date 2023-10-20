@@ -23,6 +23,7 @@ namespace HotelManagementSystem.Controllers
         {
             try
             {
+                if(!ModelState.IsValid) return BadRequest(ModelState);
                 var user = await _userService.Authentication(loginVM);
                 if (user == null)
                 {
@@ -42,6 +43,7 @@ namespace HotelManagementSystem.Controllers
         {
             try
             {
+                if (!ModelState.IsValid) return BadRequest(ModelState);
                 var user = await _userService.Register(register);
                 if(user.IsSuccessful)
                 {
@@ -70,6 +72,7 @@ namespace HotelManagementSystem.Controllers
         {
             try
             {
+                if (!ModelState.IsValid) return BadRequest(ModelState);
                 bool result = await _userService.ForgotPassword(email);
                 if (!result) return BadRequest("User not found.");
                 return Ok();
@@ -85,6 +88,7 @@ namespace HotelManagementSystem.Controllers
         {
             try
             {
+                if (!ModelState.IsValid) return BadRequest(ModelState);
                 bool result = await _userService.ResetPasswordAsync(resetPassword);
                 if (!result) return BadRequest("Something Went Wrong");
                 return Ok("Password Reset Successfully");

@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "xjgaXewHE+2CBaFLVjzl6gx9eNAn4afXMJUq8gyShLg=",
+  "Hash": "9dtU0M7pqJURbyWjeNWYW1+LuWIVh5mgSdPkczbExFk=",
   "Source": "HotelManagementSystem",
   "BasePath": "_content/HotelManagementSystem",
   "Mode": "Default",
@@ -1088,6 +1088,23 @@
       "OriginalItemSpec": "wwwroot\\images\\hotels\\41f9a42b-f12d-4fcf-9419-09f0175965ad.jpeg"
     },
     {
+      "Identity": "D:\\Hotel Management System\\HotelManagementSystem\\HotelManagementSystem\\wwwroot\\images\\hotels\\508a0a39-a659-4544-941c-c1dea0055310.jpeg",
+      "SourceId": "HotelManagementSystem",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Hotel Management System\\HotelManagementSystem\\HotelManagementSystem\\wwwroot\\",
+      "BasePath": "_content/HotelManagementSystem",
+      "RelativePath": "images/hotels/508a0a39-a659-4544-941c-c1dea0055310.jpeg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\hotels\\508a0a39-a659-4544-941c-c1dea0055310.jpeg"
+    },
+    {
       "Identity": "D:\\Hotel Management System\\HotelManagementSystem\\HotelManagementSystem\\wwwroot\\images\\hotels\\58351172-6ad3-4d5a-b96e-4380e9ff21f5.jpeg",
       "SourceId": "HotelManagementSystem",
       "SourceType": "Discovered",
@@ -1292,6 +1309,40 @@
       "OriginalItemSpec": "wwwroot\\images\\hotels\\rooms\\4d0b2d2c-92ec-4388-b3bd-915fd55a32af.jpeg"
     },
     {
+      "Identity": "D:\\Hotel Management System\\HotelManagementSystem\\HotelManagementSystem\\wwwroot\\images\\hotels\\rooms\\4d8d983c-60da-4d8e-aaab-97460a77018c.jpeg",
+      "SourceId": "HotelManagementSystem",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Hotel Management System\\HotelManagementSystem\\HotelManagementSystem\\wwwroot\\",
+      "BasePath": "_content/HotelManagementSystem",
+      "RelativePath": "images/hotels/rooms/4d8d983c-60da-4d8e-aaab-97460a77018c.jpeg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\hotels\\rooms\\4d8d983c-60da-4d8e-aaab-97460a77018c.jpeg"
+    },
+    {
+      "Identity": "D:\\Hotel Management System\\HotelManagementSystem\\HotelManagementSystem\\wwwroot\\images\\hotels\\rooms\\557c8828-4200-447c-8dec-e2bbe099aec6.jpeg",
+      "SourceId": "HotelManagementSystem",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Hotel Management System\\HotelManagementSystem\\HotelManagementSystem\\wwwroot\\",
+      "BasePath": "_content/HotelManagementSystem",
+      "RelativePath": "images/hotels/rooms/557c8828-4200-447c-8dec-e2bbe099aec6.jpeg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\hotels\\rooms\\557c8828-4200-447c-8dec-e2bbe099aec6.jpeg"
+    },
+    {
       "Identity": "D:\\Hotel Management System\\HotelManagementSystem\\HotelManagementSystem\\wwwroot\\images\\hotels\\rooms\\60807646-bef3-4d32-be17-ca09ebf03052.jpeg",
       "SourceId": "HotelManagementSystem",
       "SourceType": "Discovered",
@@ -1324,6 +1375,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\images\\hotels\\rooms\\7262db04-dcfe-44f4-b8bc-bbf608a4efe8.jpeg"
+    },
+    {
+      "Identity": "D:\\Hotel Management System\\HotelManagementSystem\\HotelManagementSystem\\wwwroot\\images\\hotels\\rooms\\a3a5f561-a991-4cea-b67d-00ecbc6cdade.jpeg",
+      "SourceId": "HotelManagementSystem",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Hotel Management System\\HotelManagementSystem\\HotelManagementSystem\\wwwroot\\",
+      "BasePath": "_content/HotelManagementSystem",
+      "RelativePath": "images/hotels/rooms/a3a5f561-a991-4cea-b67d-00ecbc6cdade.jpeg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\hotels\\rooms\\a3a5f561-a991-4cea-b67d-00ecbc6cdade.jpeg"
     },
     {
       "Identity": "D:\\Hotel Management System\\HotelManagementSystem\\HotelManagementSystem\\wwwroot\\images\\hotels\\rooms\\b5466932-30c2-4063-aa73-0b50e9e9ff5f.jpeg",

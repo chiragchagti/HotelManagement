@@ -58,6 +58,11 @@ namespace HotelManagementSystem.Services
 
         }
 
+        /// <summary>
+        /// Check login credentials and generate JWT token
+        /// </summary>
+        /// <param name="loginVM"></param>
+        /// <returns>Authenticated user with its role and token</returns>
         public async Task<ApplicationUser> Authentication(LoginVM loginVM)
         {
             var result = await _applicationSignInManager.PasswordSignInAsync(loginVM.UserName, loginVM.Password, false, false);
@@ -102,6 +107,11 @@ namespace HotelManagementSystem.Services
             }
         }
 
+        /// <summary>
+        /// Register a new Application User from register object of Register Type
+        /// </summary>
+        /// <param name="register"></param>
+        /// <returns></returns>
         public async Task<RegistrationResult> Register(Register register)
         {
             var user = new ApplicationUser()

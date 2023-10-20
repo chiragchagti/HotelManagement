@@ -1,7 +1,9 @@
-﻿namespace HotelManagementSystem.ServiceContract
+﻿using HotelManagementSystem.Models;
+
+namespace HotelManagementSystem.ServiceContract
 {
     public interface IBookingService
     {
-        Task<object> CheckRoomAvailability(DateTime startDate, DateTime endDate, int hotelRoomId, int roomsRequired, int adultGuests, int childGuests);
+        Task<object> CheckRoomAvailability(CheckAvailability checkAvailability);
     }
 }

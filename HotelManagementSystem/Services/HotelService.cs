@@ -26,17 +26,28 @@ namespace HotelManagementSystem.Services
             _webHostEnvironment = webHostEnvironment;
             _context = context;
         }
+
+        /// <summary>
+        /// Adding a new Room Type in RoomType Entity
+        /// </summary>
+        /// <param name="roomTypeDTO"></param>
+        /// <returns>Return the added object</returns>
+        /// <exception cref="ApplicationException"></exception>
         public async Task<RoomTypeDTO> AddRoomType([FromBody] RoomTypeDTO roomTypeDTO)
         {
             try
             {
+                //Map roomTypeDTO object to RoomType Entity
                 var roomType = _mapper.Map<RoomTypeDTO, RoomType>(roomTypeDTO);
-                if (!await _unitOfWork.RoomType.AddAsync(roomType))
+
+                //Insert room in database
+                if (!await _unitOfWork.RoomType.AddAsync(roomType)) 
                 {
                     throw new ApplicationException("An error occurred.");
 
                 }
-                return roomTypeDTO;
+                //return the roomTypeDTO after success
+                return roomTypeDTO; 
 
             }
             catch (Exception ex)
@@ -44,12 +55,20 @@ namespace HotelManagementSystem.Services
                 throw new ApplicationException("An error occurred." + ex);
             }
         }
+
+        /// <summary>
+        /// Adding a new Hotel in Hotel Entity, storing images in webroot and storing path of images in Database as string.
+        /// </summary>
+        /// <param name="hotelDTO"></param>
+        /// <returns>Returns the added Hotel</returns>
+        /// <exception cref="ApplicationException"></exception>
         public async Task<HotelDTO> CreateHotel(HotelDTO hotelDTO)
         {
             try
             {
                 hotelDTO.Images = "";
-                //Images
+
+                //Handling uploaded images
                 if (hotelDTO.Files.Count > 0)
                 {
                     var webRootPath = _webHostEnvironment.WebRootPath;
@@ -75,13 +94,15 @@ namespace HotelManagementSystem.Services
                     }
                 }
 
-
-                var addHotel = _mapper.Map<HotelDTO, Hotel>(hotelDTO);
+                //Map hotelDTO with the Entity
+                var addHotel = _mapper.Map<HotelDTO, Hotel>(hotelDTO); 
                 try
                 {
-                    await _unitOfWork.Hotel.AddAsync(addHotel);
+                    await _unitOfWork.Hotel.AddAsync(addHotel); //adding mapped object in database
                 }
-                catch (Exception ex)
+
+                //catching exception in ex variable
+                catch (Exception ex) 
                 {
                     throw new ApplicationException("An error occurred." + ex);
                 }
@@ -93,6 +114,12 @@ namespace HotelManagementSystem.Services
             }
         }
 
+        /// <summary>
+        /// Adding details of the rooms available in the hotel
+        /// </summary>
+        /// <param name="hotelRoomDTO"></param>
+        /// <returns>Collection of Rooms added in Hotel</returns>
+        /// <exception cref="ApplicationException"></exception>
         public async Task<ICollection<HotelRoomDTO>> AddRoomsInHotel(ICollection<HotelRoomDTO> hotelRoomDTO)
         {
             try
@@ -106,28 +133,28 @@ namespace HotelManagementSystem.Services
                         var webRootPath = _webHostEnvironment.WebRootPath;
                         foreach (var file in item.Files)
                         {
-                            var fileName = Guid.NewGuid().ToString();
+                            var fileName = Guid.NewGuid().ToString();  
                             var extention = Path.GetExtension(file.FileName);
                             var upload = Path.Combine(webRootPath, @"images\hotels\rooms");
 
                             using (var FileStream = new FileStream(Path.Combine(upload, fileName + extention), FileMode.Create))
                             {
-                                file.CopyTo(FileStream);  //save
+                                file.CopyTo(FileStream);  //save in folder
                             }
                             if (item.Images == "")
                             {
-                                item.Images = @"\images\hotels\" + fileName + extention;
+                                item.Images = @"\images\hotels\rooms\" + fileName + extention;
                             }
                             else
                             {
-                                item.Images = item.Images + "," + @"\images\hotels\" + fileName + extention;
+                                item.Images = item.Images + "," + @"\images\hotels\rooms\" + fileName + extention;
 
                             }
                         }
                     }
                 }
-                var addHotelRooms = _mapper.Map<ICollection<HotelRoomDTO>, ICollection<HotelRoom>>(hotelRoomDTO);
-                await _unitOfWork.HotelRoom.AddRangeAsync(addHotelRooms);
+                var addHotelRooms = _mapper.Map<ICollection<HotelRoomDTO>, ICollection<HotelRoom>>(hotelRoomDTO); //Mapping collection of hotelroomsDTo with Entity
+                await _unitOfWork.HotelRoom.AddRangeAsync(addHotelRooms);  //adding range of hotelRooms in database
                 return hotelRoomDTO;
             }
             catch (Exception ex)
@@ -138,33 +165,24 @@ namespace HotelManagementSystem.Services
 
         }
 
+        /// <summary>
+        /// Updating a specific roomtype in a specific Hotel
+        /// </summary>
+        /// <param name="hotelRoomDTO"></param>
+        /// <returns>Returning room which is updated</returns>
+        /// <exception cref="ApplicationException"></exception>
         public async Task<HotelRoomDTO> UpdateRoomInHotel(HotelRoomDTO hotelRoomDTO)
         {
             try
             {
                 hotelRoomDTO.Images = "";
+
+                //Handling images
                 if (hotelRoomDTO.Files != null)
                 {
                     var webRootPath = _webHostEnvironment.WebRootPath;
                     var room = await _unitOfWork.HotelRoom.FirstOrDefaultAsync(r => r.Id == hotelRoomDTO.Id);
                     hotelRoomDTO.Images = room.Images;
-                    //if (item.Images != null)
-                    //{
-
-                    //    string[] imagePathsArray = item.Images.Split(',');
-
-                    //    foreach (var imagePath in imagePathsArray)
-                    //    {
-                    //        var trimmedPath = imagePath.Trim('\\');
-                    //        var fullPath = Path.Combine(webRootPath, trimmedPath);
-
-                    //        if (System.IO.File.Exists(fullPath))
-                    //        {
-                    //            System.IO.File.Delete(fullPath);
-                    //        }
-                    //    }
-                    //    item.Images = "";
-                    //}
                     foreach (var file in hotelRoomDTO.Files)
                     {
                         var fileName = Guid.NewGuid().ToString();
@@ -177,15 +195,17 @@ namespace HotelManagementSystem.Services
                         }
                         if (hotelRoomDTO.Images == "")
                         {
-                            hotelRoomDTO.Images = @"\images\hotels\" + fileName + extention;
+                            hotelRoomDTO.Images = @"\images\hotels\rooms\" + fileName + extention;
                         }
                         else
                         {
-                            hotelRoomDTO.Images = hotelRoomDTO.Images + "," + @"\images\hotels\" + fileName + extention;
+                            hotelRoomDTO.Images = hotelRoomDTO.Images + "," + @"\images\hotels\rooms\" + fileName + extention;
 
                         }
                     }
                 }
+
+                //if no images are selected
                 else
                 {
                     var room = await _unitOfWork.HotelRoom.FirstOrDefaultAsync(r => r.Id == hotelRoomDTO.Id);
@@ -203,83 +223,23 @@ namespace HotelManagementSystem.Services
             }
         }
 
-        public async Task<ICollection<HotelRoomDTO>> UpdateRoomsInHotel(ICollection<HotelRoomDTO> hotelRoomDTO)
-        {
-            try
-            {
-                //Images
-                foreach (var item in hotelRoomDTO)
-                {
-                    item.Images = "";
-                    if (item.Files != null)
-                    {
-                        var webRootPath = _webHostEnvironment.WebRootPath;
-                        var room = await _unitOfWork.HotelRoom.FirstOrDefaultAsync(r => r.Id == item.Id);
-                        item.Images = room.Images;
-                        //if (item.Images != null)
-                        //{
-
-                        //    string[] imagePathsArray = item.Images.Split(',');
-
-                        //    foreach (var imagePath in imagePathsArray)
-                        //    {
-                        //        var trimmedPath = imagePath.Trim('\\');
-                        //        var fullPath = Path.Combine(webRootPath, trimmedPath);
-
-                        //        if (System.IO.File.Exists(fullPath))
-                        //        {
-                        //            System.IO.File.Delete(fullPath);
-                        //        }
-                        //    }
-                        //    item.Images = "";
-                        //}
-                        foreach (var file in item.Files)
-                        {
-                            var fileName = Guid.NewGuid().ToString();
-                            var extention = Path.GetExtension(file.FileName);
-                            var upload = Path.Combine(webRootPath, @"images\hotels\rooms");
-
-                            using (var FileStream = new FileStream(Path.Combine(upload, fileName + extention), FileMode.Create))
-                            {
-                                file.CopyTo(FileStream);  //save
-                            }
-                            if (item.Images == "")
-                            {
-                                item.Images = @"\images\hotels\rooms\" + fileName + extention;
-                            }
-                            else
-                            {
-                                item.Images = item.Images + "," + @"\images\hotels\rooms\" + fileName + extention;
-
-                            }
-                        }
-                    }
-                    else
-                    {
-                        var room = await _unitOfWork.HotelRoom.FirstOrDefaultAsync(r => r.Id == item.Id);
-                        item.Images = room.Images;
-                    }
-                    var hotelRooms = _mapper.Map<ICollection<HotelRoomDTO>, ICollection<HotelRoom>>(hotelRoomDTO);
-                    await _unitOfWork.HotelRoom.UpdateRangeAsync(hotelRooms);
-                }
-                return hotelRoomDTO;
-            }
-            catch (Exception ex)
-            {
-                throw new ApplicationException("An error occurred." + ex);
-            }
-        }
-
+        /// <summary>
+        /// Get hotels by City Id
+        /// </summary>
+        /// <param name="cityId"></param>
+        /// <returns>Fetched Hotels</returns>
         public async Task<IEnumerable<HotelDTO>> GetHotels(int cityId)
         {
             try
             {
-                var hotels = await _unitOfWork.Hotel.GetAllAsync(h => h.CityId == cityId, includeProperties: "HotelRooms");
+                //Get All Hotels where cityID is equals to desired city
+                var hotels = await _unitOfWork.Hotel.GetAllAsync(hotels => hotels.CityId == cityId, includeProperties: "HotelRooms");
                 if (hotels == null)
                 {
                     return Enumerable.Empty<HotelDTO>();
                 }
 
+                //Mapping hotels to HotelDTO
                 var hotelsDTO = _mapper.Map<IEnumerable<HotelDTO>>(hotels);
                 return hotelsDTO;
             }
@@ -289,12 +249,22 @@ namespace HotelManagementSystem.Services
                 return Enumerable.Empty<HotelDTO>();
             }
         }
+
+        /// <summary>
+        /// Get Details of particular Hotel
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        /// <exception cref="ApplicationException"></exception>
         public async Task<HotelDTO> GetHotel(int id)
         {
             try
             {
-                var hotel = await _unitOfWork.Hotel.FirstOrDefaultAsync(h=>h.Id == id, includeProperties:"HotelRooms,HotelRooms.RoomType");
+                //Fetch Hotel by Hotel Id
+                var hotel = await _unitOfWork.Hotel.FirstOrDefaultAsync(hotel=>hotel.Id == id, includeProperties:"HotelRooms,HotelRooms.RoomType,City");
                 if (hotel == null) return null;
+
+                //Map the fetched hotel to HotelDTO
                 var hotelDTO = _mapper.Map<HotelDTO>(hotel);
                 return hotelDTO;
 

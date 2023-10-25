@@ -18,7 +18,7 @@ namespace HotelManagementSystem.Models.DTO
         public int TotalRooms { get; set; }
         public string Images { get; set; }
         public IFormFileCollection Files { get; set; }
-
+        public virtual RoomType RoomType { get; set; }
         public virtual Hotel Hotel { get; set; }
 
     }

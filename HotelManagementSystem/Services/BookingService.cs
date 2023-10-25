@@ -35,6 +35,9 @@ namespace HotelManagementSystem.Services
             {
             try
             {
+                checkAvailability.StartDate = checkAvailability.StartDate.AddHours(5.5);
+                checkAvailability.EndDate = checkAvailability.EndDate.AddHours(5.5);
+
                 //Check if guests are not more than capacity.
                 if (!((checkAvailability.RoomsRequired >= checkAvailability.AdultGuests / 2.0) && (checkAvailability.RoomsRequired >= checkAvailability.ChildGuests / 2.0)))
                 {
@@ -42,7 +45,7 @@ namespace HotelManagementSystem.Services
                 }
 
                 //Check if Check-in date is not in past
-                if ((checkAvailability.StartDate.Date < DateTime.Now.Date) || (checkAvailability.EndDate <= checkAvailability.StartDate))
+                if ((checkAvailability.StartDate.Date.AddHours(5.5) < DateTime.Now.Date.AddHours(5.5)) || (checkAvailability.EndDate <= checkAvailability.StartDate))
                 {
                     throw new ApplicationException("Please select valid Dates.");
                 }
@@ -64,28 +67,27 @@ namespace HotelManagementSystem.Services
                     var totalRoomsBooked = bookings.Where(bookings => bookings.CheckInDate <= date && bookings.CheckOutDate > date).Sum(b => b.TotalRooms);
                     availabilityByDate[date] = totalCapacity - totalRoomsBooked >= checkAvailability.RoomsRequired;                    
                 }
-
+                var availabilityResult = new AvailabilityResult();
+               
                 //If required number of rooms are available for all required days, calculate total price and calculate service tax
                 if (availabilityByDate.Values.All(value => value == true))
                 {
-                    int subTotal = checkAvailability.RoomsRequired * hotelRoom.Price * availabilityByDate.Count();
-                    int serviceCharge = subTotal * hotelRoom.Hotel.ServiceCharges / 100;
-                    var result = new
-                    {
-                        SubTotal = subTotal,
-                        ServiceCharge = serviceCharge
-                    };
-                    return result;
+                    availabilityResult.SubTotal = checkAvailability.RoomsRequired * hotelRoom.Price * availabilityByDate.Count();
+                    availabilityResult.ServiceCharge = availabilityResult.SubTotal * hotelRoom.Hotel.ServiceCharges / 100;
+                    availabilityResult.IsAvailable = true;
+                    availabilityResult.AvailabilityByDate = availabilityByDate;
+                    availabilityResult.SGST = availabilityResult.SubTotal * SD.SGST / 100;
+                    availabilityResult.CGST = availabilityResult.SubTotal * SD.CGST / 100;
+                    availabilityResult.TotalAmount = availabilityResult.SubTotal + availabilityResult.ServiceCharge + availabilityResult.SGST + availabilityResult.CGST;
+                    return availabilityResult;
                 }
 
                 //if rooms are not available return rooms availability
                 else 
                 {
-                     var result = new
-                {
-                    AvailableDates = availabilityByDate,
-                };
-                return result;
+                    availabilityResult.IsAvailable = false;
+                    availabilityResult.AvailabilityByDate = availabilityByDate;
+                    return availabilityResult;
                 }
                
 

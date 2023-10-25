@@ -233,7 +233,7 @@ namespace HotelManagementSystem.Services
             try
             {
                 //Get All Hotels where cityID is equals to desired city
-                var hotels = await _unitOfWork.Hotel.GetAllAsync(hotels => hotels.CityId == cityId, includeProperties: "HotelRooms");
+                var hotels = await _unitOfWork.Hotel.GetAllAsync(hotels => hotels.CityId == cityId, includeProperties: "HotelRooms,City");
                 if (hotels == null)
                 {
                     return Enumerable.Empty<HotelDTO>();
@@ -267,6 +267,26 @@ namespace HotelManagementSystem.Services
                 //Map the fetched hotel to HotelDTO
                 var hotelDTO = _mapper.Map<HotelDTO>(hotel);
                 return hotelDTO;
+
+            }
+            catch (Exception ex)
+            {
+                throw new ApplicationException("An error occurred." + ex);
+
+            }
+        }
+
+        public async Task<HotelRoomDTO> GetHotelRoom(int id)
+        {
+            try
+            {
+                //Fetch HotelRoom by HotelRoom Id
+                var hotelRoom = await _unitOfWork.HotelRoom.FirstOrDefaultAsync(hotelRoom => hotelRoom.Id == id, includeProperties: "Hotel,RoomType");
+                if (hotelRoom == null) return null;
+
+                //Map the fetched hotelRoom to HotelRoomDTO
+                var hotelRoomDTO = _mapper.Map<HotelRoomDTO>(hotelRoom);
+                return hotelRoomDTO;
 
             }
             catch (Exception ex)

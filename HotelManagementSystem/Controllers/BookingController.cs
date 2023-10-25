@@ -10,14 +10,23 @@ namespace HotelManagementSystem.Controllers
     public class BookingController : ControllerBase
     {
         private readonly IBookingService _bookingService;
-        public BookingController(IBookingService bookingService)
+        private readonly IHotelService _hotelService;
+        public BookingController(IBookingService bookingService, IHotelService hotelService)
         {
             _bookingService = bookingService;
+            _hotelService = hotelService;
         }
         [HttpPost("checkroomavailability")]
        public async Task<object> CheckRoomAvailability(CheckAvailability checkAvailability)
         {
             return await _bookingService.CheckRoomAvailability(checkAvailability);
+        }
+
+        [HttpGet("gethotelroom/"+ "{id:int}")]
+        public async Task<IActionResult> GetHotelRoom(int id)
+        {
+            var hotelRoomDto = await _hotelService.GetHotelRoom(id);
+            return Ok(hotelRoomDto);
         }
     }
 }

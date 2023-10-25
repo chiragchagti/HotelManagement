@@ -7,6 +7,10 @@
         public const string Role_Receptionist = "Receptionist";
         public const string Role_User = "User";
 
+        public const int SGST = 9;
+        public const int CGST = 9;
+
+
 
 
 

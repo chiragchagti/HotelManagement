@@ -13,7 +13,7 @@ namespace HotelManagementSystem.ServiceContract
         Task<HotelDTO> GetHotel(int id);
         Task<ICollection<HotelRoomDTO>> AddRoomsInHotel(ICollection<HotelRoomDTO> hotelRoomDTO);
         Task<HotelRoomDTO> UpdateRoomInHotel(HotelRoomDTO hotelRoomDTO);
-
+        Task<HotelRoomDTO> GetHotelRoom(int id);
 
     }
 }

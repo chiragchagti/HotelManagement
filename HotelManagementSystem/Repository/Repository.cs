@@ -20,6 +20,17 @@ namespace HotelManagementSystem.Repository
             dbset.Add(entity);
             return await SaveAsync();
         }
+        public async Task<T> AddAsyncAndGet(T entity)
+        {
+            dbset.Add(entity);
+            var saveResult = await SaveAsync(); // Save the changes to the database
+
+            if (saveResult)
+            {
+                return entity; // Return the entity after it has been added and saved
+            }
+            return null;
+        }
 
         public async Task<bool> AddRangeAsync(ICollection<T> entities)
         {

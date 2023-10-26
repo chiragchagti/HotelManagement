@@ -1,8 +1,16 @@
 {
   "Files": [
     {
+      "Id": "D:\\Hotel Management System\\HotelManagementSystem\\HotelManagementSystem\\wwwroot\\images\\hotels\\101892d5-aba8-4262-9a2d-6c748b72ade5.jpeg",
+      "PackagePath": "staticwebassets\\images\\hotels\\101892d5-aba8-4262-9a2d-6c748b72ade5.jpeg"
+    },
+    {
       "Id": "D:\\Hotel Management System\\HotelManagementSystem\\HotelManagementSystem\\wwwroot\\images\\hotels\\14beabc7-ee37-48d9-9db7-4aed829f11fc.jpeg",
       "PackagePath": "staticwebassets\\images\\hotels\\14beabc7-ee37-48d9-9db7-4aed829f11fc.jpeg"
+    },
+    {
+      "Id": "D:\\Hotel Management System\\HotelManagementSystem\\HotelManagementSystem\\wwwroot\\images\\hotels\\33d538a0-2a07-4eb6-9df4-e55dcd1cde9f.jpeg",
+      "PackagePath": "staticwebassets\\images\\hotels\\33d538a0-2a07-4eb6-9df4-e55dcd1cde9f.jpeg"
     },
     {
       "Id": "D:\\Hotel Management System\\HotelManagementSystem\\HotelManagementSystem\\wwwroot\\images\\hotels\\3e18a1ad-a0ba-4c02-8cc5-b3a8b990b726.jpeg",
@@ -29,12 +37,40 @@
       "PackagePath": "staticwebassets\\images\\hotels\\69fe7b8f-c7ca-45d0-8469-5a79bb2294d5.jpeg"
     },
     {
+      "Id": "D:\\Hotel Management System\\HotelManagementSystem\\HotelManagementSystem\\wwwroot\\images\\hotels\\8a438722-7267-4893-9a33-78eec56b4b99.jpeg",
+      "PackagePath": "staticwebassets\\images\\hotels\\8a438722-7267-4893-9a33-78eec56b4b99.jpeg"
+    },
+    {
       "Id": "D:\\Hotel Management System\\HotelManagementSystem\\HotelManagementSystem\\wwwroot\\images\\hotels\\959ddd12-1c77-4ae9-b2db-4905d6449276.jpeg",
       "PackagePath": "staticwebassets\\images\\hotels\\959ddd12-1c77-4ae9-b2db-4905d6449276.jpeg"
     },
     {
+      "Id": "D:\\Hotel Management System\\HotelManagementSystem\\HotelManagementSystem\\wwwroot\\images\\hotels\\a15564fc-e968-4e28-952d-d9ddf8759917.jpeg",
+      "PackagePath": "staticwebassets\\images\\hotels\\a15564fc-e968-4e28-952d-d9ddf8759917.jpeg"
+    },
+    {
       "Id": "D:\\Hotel Management System\\HotelManagementSystem\\HotelManagementSystem\\wwwroot\\images\\hotels\\a9080a8a-eb37-4632-868a-79a031e820dd.jpeg",
       "PackagePath": "staticwebassets\\images\\hotels\\a9080a8a-eb37-4632-868a-79a031e820dd.jpeg"
+    },
+    {
+      "Id": "D:\\Hotel Management System\\HotelManagementSystem\\HotelManagementSystem\\wwwroot\\images\\hotels\\b787ff9e-d140-4623-8a81-8d69adc6e69a.jpeg",
+      "PackagePath": "staticwebassets\\images\\hotels\\b787ff9e-d140-4623-8a81-8d69adc6e69a.jpeg"
+    },
+    {
+      "Id": "D:\\Hotel Management System\\HotelManagementSystem\\HotelManagementSystem\\wwwroot\\images\\hotels\\ca8de3fa-1c49-4ff1-9c36-84b9b68288ef.jpeg",
+      "PackagePath": "staticwebassets\\images\\hotels\\ca8de3fa-1c49-4ff1-9c36-84b9b68288ef.jpeg"
+    },
+    {
+      "Id": "D:\\Hotel Management System\\HotelManagementSystem\\HotelManagementSystem\\wwwroot\\images\\hotels\\e83a7433-c8f7-4fe8-9663-3410f9527299.jpeg",
+      "PackagePath": "staticwebassets\\images\\hotels\\e83a7433-c8f7-4fe8-9663-3410f9527299.jpeg"
+    },
+    {
+      "Id": "D:\\Hotel Management System\\HotelManagementSystem\\HotelManagementSystem\\wwwroot\\images\\hotels\\ec8f2847-b281-44b2-bbd5-458f46a725f1.jpeg",
+      "PackagePath": "staticwebassets\\images\\hotels\\ec8f2847-b281-44b2-bbd5-458f46a725f1.jpeg"
+    },
+    {
+      "Id": "D:\\Hotel Management System\\HotelManagementSystem\\HotelManagementSystem\\wwwroot\\images\\hotels\\ee94dcd4-f820-4166-8ade-14d8868c46a7.jpeg",
+      "PackagePath": "staticwebassets\\images\\hotels\\ee94dcd4-f820-4166-8ade-14d8868c46a7.jpeg"
     },
     {
       "Id": "D:\\Hotel Management System\\HotelManagementSystem\\HotelManagementSystem\\wwwroot\\images\\hotels\\f4758633-78d8-45f0-baed-201524c19f1c.jpeg",

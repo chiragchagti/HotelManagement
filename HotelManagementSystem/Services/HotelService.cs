@@ -95,10 +95,12 @@ namespace HotelManagementSystem.Services
                 }
 
                 //Map hotelDTO with the Entity
-                var addHotel = _mapper.Map<HotelDTO, Hotel>(hotelDTO); 
+                var addHotel = _mapper.Map<HotelDTO, Hotel>(hotelDTO);
                 try
                 {
-                    await _unitOfWork.Hotel.AddAsync(addHotel); //adding mapped object in database
+                    var addedHotel =await _unitOfWork.Hotel.AddAsyncAndGet(addHotel); //adding mapped object in database
+                    hotelDTO = _mapper.Map<HotelDTO>(addedHotel);
+
                 }
 
                 //catching exception in ex variable
